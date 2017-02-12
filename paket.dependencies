@@ -1,0 +1,9 @@
+source https://api.nuget.org/v3/index.json
+framework >= net452
+
+nuget Microsoft.AspNet.Mvc 5.2.3
+nuget Microsoft.CodeDom.Providers.DotNetCompilerPlatform 1.0.3
+
+nuget Akka
+nuget Microsoft.AspNet.Signalr
+nuget Microsoft.Owin

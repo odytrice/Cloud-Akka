@@ -1,0 +1,13 @@
+{
+  "name": "cloud-akka",
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "font-awesome": "Font-Awesome#~4.7.0",
+    "jQuery": "~3.1.1",
+    "angular": "^1.6.2",
+    "signalr": "v2.2.1"
+  },
+  "resolutions": {
+    "bootstrap": "~3.3.7"
+  }
+}

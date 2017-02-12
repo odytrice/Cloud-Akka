@@ -1,9 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26127.3
+VisualStudioVersion = 15.0.26206.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{D62ABD7A-3FCD-4954-AC59-6364B641DF19}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudAkka.Web", "CloudAkka.Web\CloudAkka.Web.csproj", "{16FA0D1A-EF02-442D-BBBA-63BE722811D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudAkka.ActorModel", "CloudAkka.ActorModel\CloudAkka.ActorModel.csproj", "{3F49DE1C-944B-4CCC-8BC2-504E7CED439F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudAkka.Service", "CloudAkka.Service\CloudAkka.Service.csproj", "{CEAC3CFC-FF43-48E6-9CCB-89C8896BF6D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +24,14 @@ Global
 		{16FA0D1A-EF02-442D-BBBA-63BE722811D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16FA0D1A-EF02-442D-BBBA-63BE722811D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16FA0D1A-EF02-442D-BBBA-63BE722811D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F49DE1C-944B-4CCC-8BC2-504E7CED439F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F49DE1C-944B-4CCC-8BC2-504E7CED439F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F49DE1C-944B-4CCC-8BC2-504E7CED439F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F49DE1C-944B-4CCC-8BC2-504E7CED439F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEAC3CFC-FF43-48E6-9CCB-89C8896BF6D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEAC3CFC-FF43-48E6-9CCB-89C8896BF6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEAC3CFC-FF43-48E6-9CCB-89C8896BF6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEAC3CFC-FF43-48E6-9CCB-89C8896BF6D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div ng-app="MainApp" class="ng-cloak" ng-controller="AppCtrl as model">
+    <div ng-hide="model.User">
+        <h2>User</h2>
+        <hr />
+        <form class="form-inline" ng-submit="model.Login(name)">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                <input type="text" class="form-control" id="exampleInputEmail3" ng-model="name" style="width:600px" placeholder="Name">
+            </div>
+            <button type="submit" class="btn btn-default">Login</button>
+        </form>
+    </div>
+
+    <div ng-show="model.User">
+
+        <h2>Welcome {{model.User.Name}}</h2>
+        <hr />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in model.Products">
+                    <td>{{product.Name}}</td>
+                    <td>{{product.Price | currency}}</td>
+                    <td class="text-right">
+                        <button class="btn btn-default btn-xs" ng-click="model.Buy(product)"><i class="fa fa-shopping-cart"></i>Buy</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Cart</h2>
+        <table class="table table-striped" ng-show="model.Cart.Items.length">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in model.Cart.Items">
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Price | currency}}</td>
+                    <td>{{item.Quantity}}</td>
+                    <td class="text-right">{{item.Price * item.Quantity | currency}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <th class="text-right">{{model.Cart.Total | currency}}</th>
+                </tr>
+            </tbody>
+        </table>
+
+        <div ng-hide="model.Cart.Items.length">
+            <p class="text-center" style="margin:50px 10px"><i class="fa fa-shopping-cart"></i>Cart is Empty</p>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/scripts/libs/angular/angular.min.js"></script>
+    <script src="~/Scripts/app.js"></script>
+}
