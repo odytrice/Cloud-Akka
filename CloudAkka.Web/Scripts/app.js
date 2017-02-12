@@ -34,7 +34,7 @@ var AppCtrl = (function () {
 app.controller("AppCtrl", AppCtrl);
 var CartService = (function () {
     function CartService($rootScope) {
-        this.cart = new Cart();
+        this.cart = new Cart([]);
         var connection = $.hubConnection();
         this.proxy = connection.createHubProxy("cart");
         this.listen($rootScope);
@@ -51,8 +51,8 @@ var CartService = (function () {
         this.proxy.on("ProductAdded", function (product) {
             $scope.$apply(function () { return _this.cart.Add(product); });
         });
-        this.proxy.on("CartLoaded", function (cart) {
-            $scope.$apply(function () { return _this.cart = new Cart(cart); });
+        this.proxy.on("CartLoaded", function (items) {
+            $scope.$apply(function () { return _this.cart = new Cart(items); });
         });
     };
     Object.defineProperty(CartService.prototype, "Cart", {
@@ -84,10 +84,8 @@ var CartService = (function () {
 }());
 app.service("_cart", CartService);
 var Cart = (function () {
-    function Cart(cart) {
-        this.Items = [];
-        if (cart)
-            this.Items = cart.Items;
+    function Cart(items) {
+        this.Items = items;
     }
     Object.defineProperty(Cart.prototype, "Total", {
         get: function () {

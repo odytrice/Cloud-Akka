@@ -40,9 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actors\EchoActor.cs" />
-    <Compile Include="Messages\EchoMessage.cs" />
-    <Compile Include="Messages\ResponseMessage.cs" />
+    <Compile Include="Actors\CartActor.cs" />
+    <Compile Include="Actors\ShoppingActor.cs" />
+    <Compile Include="Actors\SignalRActor.cs" />
+    <Compile Include="Actors\UserActor.cs" />
+    <Compile Include="External\IEventPusher.cs" />
+    <Compile Include="Messages\Commands\AddProduct.cs" />
+    <Compile Include="Messages\Events\CartStatus.cs" />
+    <Compile Include="Messages\Commands\Login.cs" />
+    <Compile Include="Messages\Events\ProductAdded.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />

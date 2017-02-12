@@ -46,7 +46,7 @@ class CartService {
     private isConnected: JQueryPromise<any>;
     private proxy: HubProxy;
 
-    private cart = new Cart();
+    private cart = new Cart([]);
 
     constructor($rootScope) {
 
@@ -71,8 +71,8 @@ class CartService {
             $scope.$apply(() => this.cart.Add(product));
         });
 
-        this.proxy.on("CartLoaded", (cart: Cart) => {
-            $scope.$apply(() => this.cart = new Cart(cart));
+        this.proxy.on("CartLoaded", (items: Item[]) => {
+            $scope.$apply(() => this.cart = new Cart(items));
         });
     }
 
@@ -97,10 +97,10 @@ class CartService {
 app.service("_cart", CartService);
 
 class Cart {
-    Items: Item[] = []
+    Items: Item[];
 
-    constructor(cart?: Cart) {
-        if (cart) this.Items = cart.Items;
+    constructor(items: Item[]) {
+        this.Items = items;
     }
 
     get Total() {
