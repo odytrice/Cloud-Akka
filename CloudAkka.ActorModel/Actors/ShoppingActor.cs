@@ -27,12 +27,18 @@ namespace CloudAkka.ActorModel.Actors
 
         public void LoginUser(Login message)
         {
+            if (string.IsNullOrEmpty(message.UserName)) return;
+
             var userExists = _users.ContainsKey(message.UserName);
-            if (!userExists && message.UserName != null)
+            if (!userExists)
             {
+                //Create User Actor
                 var userProps = Props.Create<UserActor>(message.UserName);
                 _users[message.UserName] = Context.ActorOf(userProps, message.UserName);
             }
+
+            //Forward Login Message
+            _users[message.UserName].Forward(message);
         }
     }
 }

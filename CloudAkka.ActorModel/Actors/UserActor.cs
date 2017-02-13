@@ -23,6 +23,12 @@ namespace CloudAkka.ActorModel.Actors
 
             //Forward AddProduct Message to Cart Actor
             Receive<AddProduct>(m => _cart.Forward(m));
+
+            Receive<Login>(m => Login(m));
+        }
+        public void Login(Login message)
+        {
+
         }
     }
 }

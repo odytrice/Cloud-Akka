@@ -70,33 +70,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\jquery-3.1.1-vsdoc.js">
-      <Paket>True</Paket>
-    </Content>
-    <Content Include="Scripts\jquery-3.1.1.js">
-      <Paket>True</Paket>
-    </Content>
-    <Content Include="Scripts\jquery-3.1.1.min.js">
-      <Paket>True</Paket>
-    </Content>
-    <Content Include="Scripts\jquery-3.1.1.min.map">
-      <Paket>True</Paket>
-    </Content>
-    <Content Include="Scripts\jquery-3.1.1.slim.js">
-      <Paket>True</Paket>
-    </Content>
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js">
-      <Paket>True</Paket>
-    </Content>
-    <Content Include="Scripts\jquery-3.1.1.slim.min.map">
-      <Paket>True</Paket>
-    </Content>
-    <Content Include="Scripts\jquery.signalR-2.2.1.js">
-      <Paket>True</Paket>
-    </Content>
-    <Content Include="Scripts\jquery.signalR-2.2.1.min.js">
-      <Paket>True</Paket>
-    </Content>
     <Content Include="Content\bootstrap.lumen.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
