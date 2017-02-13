@@ -14,11 +14,15 @@ namespace CloudAkka.ActorModel.Actors
     {
         private List<Item> _items = new List<Item>();
 
-        public decimal Total => _items.Sum(i => i.Price * i.Quantity);
-
         public CartActor()
         {
             Receive<AddProduct>(m => AddProduct(m));
+            Receive<FetchCartStatus>(m => GetStatus(m));
+        }
+
+        private void GetStatus(FetchCartStatus message)
+        {
+            Sender.Tell(new CartStatusChanged(message.User, _items.ToArray()));
         }
 
         public void AddProduct(AddProduct message)

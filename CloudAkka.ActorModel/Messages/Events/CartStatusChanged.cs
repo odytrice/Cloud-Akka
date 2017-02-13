@@ -1,19 +1,18 @@
-﻿using System;
+﻿using CloudAkka.ActorModel.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.Immutable;
-using CloudAkka.ActorModel.Models;
 
 namespace CloudAkka.ActorModel.Messages.Events
 {
-    public class CartStatus
+    public class CartStatusChanged
     {
         public string User { get; }
         public Item[] Items { get; }
 
-        public CartStatus(string user, Item[] items)
+        public CartStatusChanged(string user, Item[] items)
         {
             User = user;
             Items = items;

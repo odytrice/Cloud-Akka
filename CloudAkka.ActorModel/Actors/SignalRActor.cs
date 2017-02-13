@@ -23,7 +23,7 @@ namespace CloudAkka.ActorModel.Actors
             Receive<AddProduct>(m => shoppingActor.Tell(m));
             Receive<Login>(m => shoppingActor.Tell(m));
 
-            Receive<CartStatus>(m =>
+            Receive<CartStatusChanged>(m =>
             {
                 _eventPusher.OnCartLoaded(m.User, m.Items);
             });

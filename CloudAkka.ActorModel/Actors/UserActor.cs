@@ -1,5 +1,6 @@
 ﻿using Akka.Actor;
 using CloudAkka.ActorModel.Messages.Commands;
+using CloudAkka.ActorModel.Messages.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +25,8 @@ namespace CloudAkka.ActorModel.Actors
             //Forward AddProduct Message to Cart Actor
             Receive<AddProduct>(m => _cart.Forward(m));
 
-            Receive<Login>(m => Login(m));
-        }
-        public void Login(Login message)
-        {
-
+            //Tell Cart to send it's status
+            Receive<Login>(m => _cart.Tell(new FetchCartStatus(m.UserName), Sender));
         }
     }
 }

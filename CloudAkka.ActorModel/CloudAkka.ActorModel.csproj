@@ -46,8 +46,9 @@
     <Compile Include="Actors\UserActor.cs" />
     <Compile Include="External\IEventPusher.cs" />
     <Compile Include="Messages\Commands\AddProduct.cs" />
-    <Compile Include="Messages\Events\CartStatus.cs" />
+    <Compile Include="Messages\Commands\FetchCartStatus.cs" />
     <Compile Include="Messages\Commands\Login.cs" />
+    <Compile Include="Messages\Events\CartStatusChanged.cs" />
     <Compile Include="Messages\Events\ProductAdded.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Product.cs" />
