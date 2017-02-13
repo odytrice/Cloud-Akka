@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -70,6 +70,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\jquery-3.1.1-vsdoc.js">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="Scripts\jquery-3.1.1.js">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="Scripts\jquery-3.1.1.min.js">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="Scripts\jquery-3.1.1.min.map">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="Scripts\jquery-3.1.1.slim.js">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="Scripts\jquery.signalR-2.2.1.js">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="Scripts\jquery.signalR-2.2.1.min.js">
+      <Paket>True</Paket>
+    </Content>
     <Content Include="Content\bootstrap.lumen.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
@@ -174,6 +201,44 @@
       <ItemGroup>
         <Reference Include="Akka">
           <HintPath>..\packages\Akka\lib\net45\Akka.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
+      <ItemGroup>
+        <Reference Include="Akka.Remote">
+          <HintPath>..\packages\Akka.Remote\lib\net45\Akka.Remote.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
+      <ItemGroup>
+        <Reference Include="Google.ProtocolBuffers">
+          <HintPath>..\packages\Google.ProtocolBuffers\lib\net40\Google.ProtocolBuffers.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Google.ProtocolBuffers.Serialization">
+          <HintPath>..\packages\Google.ProtocolBuffers\lib\net40\Google.ProtocolBuffers.Serialization.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
+      <ItemGroup>
+        <Reference Include="Helios">
+          <HintPath>..\packages\Helios\lib\net45\Helios.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

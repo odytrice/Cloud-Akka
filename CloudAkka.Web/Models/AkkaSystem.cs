@@ -13,11 +13,15 @@ namespace CloudAkka.Web.Models
 
         public static void Create()
         {
-            actorSystem = ActorSystem.Create("CartSystem");
-            Actors.ShoppingActor = actorSystem.ActorOf<ShoppingActor>("ShoppingActor");
+            actorSystem = ActorSystem.Create("ShoppingSystem");
 
+            //Get Shopping Actor Remotely
+            var actorAddress = "akka.tcp://ShoppingSystem@127.0.0.1:8091/user/ShoppingActor";
+            Actors.ShoppingActor = actorSystem.ActorSelection(actorAddress)
+                                              .ResolveOne(TimeSpan.FromSeconds(3))
+                                              .Result;
 
-            var signalRProps = Props.Create<SignalRActor>(new SignalREventPusher(),Actors.ShoppingActor);
+            var signalRProps = Props.Create<SignalRActor>(new SignalREventPusher(), Actors.ShoppingActor);
             Actors.Bridge = actorSystem.ActorOf(signalRProps, "SignalrActor");
         }
 

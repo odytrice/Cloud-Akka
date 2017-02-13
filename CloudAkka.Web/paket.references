@@ -3,4 +3,4 @@ Microsoft.CodeDom.Providers.DotNetCompilerPlatform
 Microsoft.AspNet.Signalr
 Microsoft.Owin
 
-Akka
+Akka.Remote

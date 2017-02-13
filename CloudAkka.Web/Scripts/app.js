@@ -39,7 +39,15 @@ var CartService = (function () {
         this.proxy = connection.createHubProxy("cart");
         this.listen($rootScope);
         this.isConnected = this.connect(connection);
+        this.refresh();
     }
+    CartService.prototype.refresh = function () {
+        var _this = this;
+        // If the Server disconnects, wait 5 seconds and try to reconnect
+        $.connection.hub.disconnected(function () {
+            setTimeout(function () { return _this.connect($.connection); }, 5000);
+        });
+    };
     CartService.prototype.connect = function (connection) {
         var promise = connection.start();
         promise.then(function () { return console.log("Connected"); });

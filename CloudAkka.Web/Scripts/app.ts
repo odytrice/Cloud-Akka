@@ -57,9 +57,18 @@ class CartService {
         this.listen($rootScope);
 
         this.isConnected = this.connect(connection);
+        
+        this.refresh();
     }
 
-    private connect(connection: HubConnection) {
+    refresh() {
+        // If the Server disconnects, wait 5 seconds and try to reconnect
+        $.connection.hub.disconnected(() => {
+            setTimeout(() => this.connect($.connection), 5000);
+        });
+    }
+
+    private connect(connection: HubConnection | SignalR) {
         let promise = connection.start();
         promise.then(() => console.log("Connected"));
         promise.fail(() => console.error("Connection Failed"));

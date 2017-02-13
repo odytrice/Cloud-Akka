@@ -1,4 +1,4 @@
-# Akk.NET and SignalR
+# Akka.NET and SignalR
 This is a demo for using Akka.NET with SignalR
 
 ## Installation
