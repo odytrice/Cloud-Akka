@@ -1,5 +1,6 @@
 ﻿using Akka.Actor;
 using CloudAkka.ActorModel.Messages.Commands;
+using CloudAkka.ActorModel.Messages.Events;
 using CloudAkka.ActorModel.Models;
 using System;
 using System.Collections.Generic;
@@ -17,21 +18,23 @@ namespace CloudAkka.ActorModel.Actors
 
         public CartActor()
         {
-            Receive<AddProduct>(m => AddProduct(m.Product));
+            Receive<AddProduct>(m => AddProduct(m));
         }
 
-        public void AddProduct(Product product)
+        public void AddProduct(AddProduct message)
         {
-            var item = _items.Where(i => i.Name == product.Name).FirstOrDefault();
+            var item = _items.Where(i => i.Name == message.Product.Name).FirstOrDefault();
             if (item != null)
             {
                 item.Quantity = item.Quantity + 1;
             }
             else
             {
-                item = new Item { Name = product.Name, Quantity = 1, Price = product.Price };
+                item = new Item { Name = message.Product.Name, Quantity = 1, Price = message.Product.Price };
                 _items.Add(item);
             }
+
+            Sender.Tell(new ProductAdded(message.User, message.Product));
         }
     }
 }

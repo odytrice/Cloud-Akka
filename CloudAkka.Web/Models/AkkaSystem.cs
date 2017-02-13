@@ -14,10 +14,10 @@ namespace CloudAkka.Web.Models
         public static void Create()
         {
             actorSystem = ActorSystem.Create("CartSystem");
-            Actors.CartController = actorSystem.ActorOf<ShoppingActor>();
+            Actors.ShoppingActor = actorSystem.ActorOf<ShoppingActor>("ShoppingActor");
 
 
-            var signalRProps = Props.Create<SignalRActor>(null,Actors.CartController);
+            var signalRProps = Props.Create<SignalRActor>(new SignalREventPusher(),Actors.ShoppingActor);
             Actors.Bridge = actorSystem.ActorOf(signalRProps, "SignalrActor");
         }
 
@@ -28,7 +28,7 @@ namespace CloudAkka.Web.Models
 
         public static class Actors
         {
-            public static IActorRef CartController { get; set; }
+            public static IActorRef ShoppingActor { get; set; }
             public static IActorRef Bridge { get; set; }
         }
     }

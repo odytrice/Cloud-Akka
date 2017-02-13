@@ -11,5 +11,11 @@ namespace CloudAkka.ActorModel.Messages.Events
     {
         public string User { get; }
         public Product Product { get; }
+
+        public ProductAdded(string user, Product product)
+        {
+            User = user;
+            Product = product;
+        }
     }
 }

@@ -14,6 +14,15 @@ namespace CloudAkka.ActorModel.Actors
         public ShoppingActor()
         {
             Receive<Login>(m => LoginUser(m));
+            Receive<AddProduct>(m =>
+            {
+                //Route Message to specific Child Actor
+                var userActor = _users.Where(u => u.Key == m.User).Select(u => u.Value).FirstOrDefault();
+                if(userActor != null)
+                {
+                    userActor.Forward(m);
+                }
+            });
         }
 
         public void LoginUser(Login message)
